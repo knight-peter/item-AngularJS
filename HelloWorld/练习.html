@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>练习</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<script src="../js/angular.1.4.x.min.js"></script>
+
+</head>
+<body ng-controller="TextController">
+   <p ng-bind="someText.message"></p>
+<script>
+	var myAppModule = angular.module('myApp',[]);
+	myAppModule.controller('TextController',
+		function($scope){
+			var someText = {};
+			someText.message = '123456';
+			$scope.someText = someText;
+	});
+</script>
+</body>
+</html>

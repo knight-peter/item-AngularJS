@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>表单输入</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<script src="../js/angular.1.2.x.min.js"></script>
+
+</head>
+<body>
+	<h1>点击确定后计算</h1>
+	<form action="" ng-controller="StartUpController" ng-submit="requestFunding()">
+   		开始：<input type="text" ng-change="computeNeeded()" ng-model="startingEstimate">
+		推荐：{{needed || "0"}}
+		<button>确定</button>
+		<button type="button" ng-click="reset()">重置</button>
+	</form>
+<script>
+	var myAppModule = angular.module('myApp',[]);
+	myAppModule.controller('StartUpController', ['$scope', function($scope){
+		$scope.startingEstimate = 0;
+		$scope.computeNeeded = function(){
+			$scope.needed = $scope.startingEstimate*10;
+		};
+		$scope.requestFunding = function() {
+			// $scope.needed = $scope.startingEstimate*10;
+			window.alert("对不起！")
+		};
+		$scope.reset = function(){
+			$scope.startingEstimate = 0;
+		};
+		// $scope.$watch('funding.startingEstimate', computeNeeded);
+	}
+	])
+</script>
+</body>
+</html>	
